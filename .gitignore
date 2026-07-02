@@ -9,3 +9,5 @@ service-account.json
 *.egg-info/
 .DS_Store
 public/
+.vercel
+.env.local
