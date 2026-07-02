@@ -1,0 +1,9 @@
+{
+  "mcpServers": {
+    "shiv-sagar-restaurant": {
+      "command": "python",
+      "args": ["mcp/restaurant_mcp_server.py"],
+      "cwd": "${workspaceFolder}"
+    }
+  }
+}

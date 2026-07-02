@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Shiv Sagar | Voice Reservations</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Text:wght@400;700&amp;family=Plus+Jakarta+Sans:wght@400;600&amp;family=DM+Sans:wght@400;500&amp;family=JetBrains+Mono:wght@400;500&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@100..900&amp;family=Libre+Caslon+Text:wght@100..900&amp;family=Plus+Jakarta+Sans:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+        
+        .mic-gradient {
+            background: radial-gradient(circle, #fdba49 0%, #e8a838 100%);
+        }
+
+        .saffron-glow {
+            box-shadow: 0 8px 32px rgba(232, 168, 56, 0.25);
+        }
+
+        @keyframes rotate-ring {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .loading-ring-animation {
+            animation: rotate-ring 2s linear infinite;
+        }
+
+        .paisley-bg {
+            background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M50 10c-15 0-25 15-25 25 0 20 25 45 25 45s25-25 25-45c0-10-10-25-25-25z' fill='%23ffffff' fill-opacity='0.03'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: bottom right;
+        }
+
+        .ghost-line {
+            height: 1px;
+            background: linear-gradient(90deg, rgba(213, 196, 175, 0.06) 0%, rgba(213, 196, 175, 0.02) 100%);
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-bright": "#353a3f",
+                        "on-primary-fixed": "#281800",
+                        "surface-container": "#1b2025",
+                        "tertiary-fixed-dim": "#4de082",
+                        "secondary-fixed": "#ffdbd1",
+                        "on-error-container": "#ffdad6",
+                        "surface": "#0f1419",
+                        "primary": "#ffc66b",
+                        "background": "#0f1419",
+                        "on-surface-variant": "#d5c4af",
+                        "error-container": "#93000a",
+                        "primary-container": "#e8a838",
+                        "inverse-primary": "#805600",
+                        "surface-container-low": "#171c21",
+                        "on-tertiary-container": "#005126",
+                        "tertiary": "#58ea8a",
+                        "secondary": "#ffb5a0",
+                        "on-tertiary": "#003919",
+                        "on-error": "#690005",
+                        "on-background": "#dee3ea",
+                        "surface-container-lowest": "#0a0f14",
+                        "secondary-container": "#802a10",
+                        "outline-variant": "#504535",
+                        "on-secondary-fixed-variant": "#802a10",
+                        "surface-tint": "#fdba49",
+                        "on-secondary-fixed": "#3b0900",
+                        "on-tertiary-fixed": "#00210c",
+                        "tertiary-fixed": "#6dfe9c",
+                        "secondary-fixed-dim": "#ffb5a0",
+                        "on-secondary": "#601500",
+                        "primary-fixed": "#ffddaf",
+                        "outline": "#9d8e7c",
+                        "on-tertiary-fixed-variant": "#005227",
+                        "inverse-surface": "#dee3ea",
+                        "tertiary-container": "#34cd71",
+                        "surface-container-high": "#252a30",
+                        "on-surface": "#dee3ea",
+                        "surface-variant": "#30353b",
+                        "on-primary-fixed-variant": "#614000",
+                        "surface-dim": "#0f1419",
+                        "primary-fixed-dim": "#fdba49",
+                        "on-primary": "#432c00",
+                        "on-primary-container": "#5f3f00",
+                        "error": "#ffb4ab",
+                        "on-secondary-container": "#ff9b7f",
+                        "inverse-on-surface": "#2c3136",
+                        "surface-container-highest": "#30353b"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "sm": "12px",
+                        "max_width": "520px",
+                        "lg": "40px",
+                        "base": "8px",
+                        "xs": "4px",
+                        "md": "24px",
+                        "gutter": "16px"
+                    },
+                    "fontFamily": {
+                        "display-logo": ["Libre Caslon Text"],
+                        "headline-lg": ["Plus Jakarta Sans"],
+                        "label-caps": ["DM Sans"],
+                        "body-md": ["DM Sans"],
+                        "headline-sm": ["Plus Jakarta Sans"],
+                        "body-sm": ["DM Sans"],
+                        "code-res": ["JetBrains Mono"]
+                    },
+                    "fontSize": {
+                        "display-logo": ["32px", {"lineHeight": "40px", "letterSpacing": "0.02em", "fontWeight": "600"}],
+                        "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "600"}],
+                        "label-caps": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "headline-sm": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                        "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                        "code-res": ["16px", {"lineHeight": "24px", "fontWeight": "500"}]
+                    }
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-surface text-on-surface min-h-screen flex items-center justify-center p-gutter">
+<!-- Top Navigation -->
+<main class="w-full max-w-[480px] h-[720px] bg-surface-container rounded-xl overflow-hidden flex flex-col relative shadow-2xl border border-white/5 paisley-bg">
+<!-- Header -->
+<header class="flex flex-col items-center pt-lg px-gutter gap-xs">
+<h1 class="font-display-logo text-primary text-[28px]">Shiv Sagar</h1>
+<div class="flex items-center gap-base">
+<span class="font-headline-sm text-on-surface text-sm opacity-80 uppercase tracking-widest">Voice Reservations</span>
+<span class="bg-primary-container/20 text-primary text-[10px] font-label-caps px-2 py-0.5 rounded-full border border-primary/20">IST 14:22</span>
+</div>
+</header>
+<!-- Status Area -->
+<div class="mt-lg px-gutter text-center flex flex-col gap-xs">
+<h2 class="font-headline-sm text-lg flex items-center justify-center gap-xs" style="color: #4ADE80;">Listening — speak anytime (IST) <span class="flex gap-1 ml-1"><span class="w-1 h-1 rounded-full bg-current animate-pulse"></span><span class="w-1 h-1 rounded-full bg-current animate-pulse" style="animation-delay: 0.2s"></span><span class="w-1 h-1 rounded-full bg-current animate-pulse" style="animation-delay: 0.4s"></span></span></h2>
+</div>
+<!-- Center: Mic Section -->
+<div class="flex-grow flex flex-col items-center justify-center relative">
+<div class="relative flex items-center justify-center w-64 h-64">
+<!-- Loading Ring Animation -->
+<div class="absolute w-[132px] h-[132px] flex items-center justify-center">
+<svg class="w-full h-full loading-ring-animation" viewbox="0 0 100 100">
+<circle cx="50" cy="50" fill="transparent" r="48" stroke="#e8a838" stroke-dasharray="240 60" stroke-linecap="round" stroke-width="2"></circle>
+</svg>
+</div>
+<!-- Mic Button -->
+<button class="w-[120px] h-[120px] rounded-full flex flex-col items-center justify-center text-white active:scale-95 transition-transform z-10 animate-pulse" style="background: linear-gradient(135deg, #EF4444 0%, #DC2626 100%); box-shadow: 0 0 20px rgba(239, 68, 68, 0.4);"><span class="material-symbols-outlined text-4xl" style="font-variation-settings: 'FILL' 1;">call_end</span><span class="text-[10px] font-label-caps uppercase mt-1">End Call</span></button>
+</div>
+</div>
+<!-- Transcript Ghost Area -->
+<div class="px-lg pb-lg flex flex-col gap-sm"><div class="flex flex-col gap-base mb-base"><div class="flex flex-col gap-xs"><span class="text-[10px] font-label-caps uppercase opacity-40" style="color: #8A9BB0;">Agent</span><p class="font-body-sm leading-relaxed" style="color: #8A9BB0;">Welcome to Shiv Sagar. How can I help you today?</p></div><div class="flex flex-col gap-xs items-end"><span class="text-[10px] font-label-caps uppercase opacity-40" style="color: #F0EBE3;">You</span><p class="font-body-sm leading-relaxed text-right" style="color: #F0EBE3;">I'd like to book a table for Friday evening.</p></div></div><p class="text-center text-[11px] font-body-sm opacity-40 italic" style="color: #8A9BB0;">You can interrupt the agent at any time</p></div>
+<!-- Footer Decoration -->
+<footer class="p-base flex justify-center opacity-20 pointer-events-none">
+<span class="material-symbols-outlined text-primary text-xl">water_lux</span>
+</footer>
+<!-- Micro-interaction overlay for feedback -->
+<div class="absolute inset-0 bg-primary/5 pointer-events-none opacity-0 transition-opacity duration-1000" id="connecting-overlay"></div>
+</main>
+<script>
+    // Subtle atmospheric breathing effect
+    const overlay = document.getElementById('connecting-overlay');
+    let opacity = 0;
+    let direction = 1;
+
+    function breathe() {
+        opacity += 0.002 * direction;
+        if (opacity > 0.08 || opacity < 0) direction *= -1;
+        overlay.style.opacity = opacity;
+        requestAnimationFrame(breathe);
+    }
+    breathe();
+
+    // Simple feedback on mic click
+    const micBtn = document.querySelector('button');
+    micBtn.addEventListener('click', () => {
+        console.log('User attempting to grant permission early');
+    });
+</script>
+</body></html>

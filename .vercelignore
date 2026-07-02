@@ -1,0 +1,11 @@
+.venv
+.env
+credentials.json
+token.json
+heroic-rain-*.json
+*-service-account*.json
+data/
+__pycache__
+*.pyc
+.DS_Store
+stitch_shiv_sagar_voice_system

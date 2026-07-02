@@ -1,0 +1,269 @@
+<!DOCTYPE html><html class="dark" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Shiv Sagar Voice Agent - Booking Confirmation</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Text:wght@600&amp;family=Plus+Jakarta+Sans:wght@400;600&amp;family=DM+Sans:wght@400;500&amp;family=JetBrains+Mono:wght@500&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@100..900&amp;family=Libre+Caslon+Text:wght@100..900&amp;family=Plus+Jakarta+Sans:wght@100..900&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+                  "surface-container-low": "#171c21",
+                  "error": "#ffb4ab",
+                  "surface-container-high": "#252a30",
+                  "on-background": "#dee3ea",
+                  "tertiary-container": "#34cd71",
+                  "surface-dim": "#0f1419",
+                  "tertiary": "#58ea8a",
+                  "outline": "#9d8e7c",
+                  "secondary-fixed-dim": "#ffb5a0",
+                  "surface-variant": "#30353b",
+                  "on-error-container": "#ffdad6",
+                  "surface": "#0f1419",
+                  "outline-variant": "#504535",
+                  "on-tertiary-fixed-variant": "#005227",
+                  "on-primary": "#432c00",
+                  "secondary-container": "#802a10",
+                  "on-surface-variant": "#d5c4af",
+                  "on-secondary-container": "#ff9b7f",
+                  "surface-container-highest": "#30353b",
+                  "surface-container": "#1b2025",
+                  "primary-fixed": "#ffddaf",
+                  "error-container": "#93000a",
+                  "surface-container-lowest": "#0a0f14",
+                  "on-tertiary": "#003919",
+                  "inverse-surface": "#dee3ea",
+                  "surface-bright": "#353a3f",
+                  "tertiary-fixed": "#6dfe9c",
+                  "inverse-on-surface": "#2c3136",
+                  "on-secondary-fixed-variant": "#802a10",
+                  "on-secondary-fixed": "#3b0900",
+                  "background": "#0f1419",
+                  "on-tertiary-fixed": "#00210c",
+                  "primary-container": "#e8a838",
+                  "on-surface": "#dee3ea",
+                  "primary-fixed-dim": "#fdba49",
+                  "primary": "#ffc66b",
+                  "secondary": "#ffb5a0",
+                  "secondary-fixed": "#ffdbd1",
+                  "tertiary-fixed-dim": "#4de082",
+                  "on-error": "#690005",
+                  "on-tertiary-container": "#005126",
+                  "on-primary-fixed-variant": "#614000",
+                  "on-primary-container": "#5f3f00",
+                  "surface-tint": "#fdba49",
+                  "on-secondary": "#601500",
+                  "on-primary-fixed": "#281800",
+                  "inverse-primary": "#805600"
+          },
+          "borderRadius": {
+                  "DEFAULT": "0.25rem",
+                  "lg": "0.5rem",
+                  "xl": "0.75rem",
+                  "full": "9999px"
+          },
+          "spacing": {
+                  "xs": "4px",
+                  "sm": "12px",
+                  "md": "24px",
+                  "gutter": "16px",
+                  "lg": "40px",
+                  "base": "8px",
+                  "max_width": "520px"
+          },
+          "fontFamily": {
+                  "label-caps": ["DM Sans"],
+                  "display-logo": ["Libre Caslon Text"],
+                  "headline-lg": ["Plus Jakarta Sans"],
+                  "headline-sm": ["Plus Jakarta Sans"],
+                  "code-res": ["JetBrains Mono"],
+                  "body-sm": ["DM Sans"],
+                  "body-md": ["DM Sans"]
+          },
+          "fontSize": {
+                  "label-caps": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                  "display-logo": ["32px", {"lineHeight": "40px", "letterSpacing": "0.02em", "fontWeight": "600"}],
+                  "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "600"}],
+                  "headline-sm": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                  "code-res": ["16px", {"lineHeight": "24px", "fontWeight": "500"}],
+                  "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                  "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    body {
+      background-color: #0a0f14;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      margin: 0;
+      color: #dee3ea;
+    }
+
+    .voice-agent-card {
+      width: 480px;
+      height: 720px;
+      background-color: #1A2332;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 24px 64px rgba(0, 0, 0, 0.4);
+    }
+
+    /* Paisley watermark effect */
+    .paisley-watermark {
+      position: absolute;
+      bottom: -40px;
+      right: -40px;
+      width: 240px;
+      height: 240px;
+      opacity: 0.04;
+      pointer-events: none;
+      background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M50 0C22.386 0 0 22.386 0 50s22.386 50 50 50 50-22.386 50-50S77.614 0 50 0zm0 90C27.909 90 10 72.091 10 50S27.909 10 50 10s40 17.909 40 40-17.909 40-40 40z' fill='%23ffffff'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-size: contain;
+    }
+
+    .saffron-glow {
+      box-shadow: 0 8px 32px rgba(232, 168, 56, 0.25);
+    }
+
+    .pulse-animation {
+      animation: pulse 2s infinite ease-in-out;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(1.05); opacity: 0.8; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+    }
+
+    .end-call-gradient {
+      background: linear-gradient(145deg, #93000a, #690005);
+    }
+  </style>
+</head>
+<body class="font-body-md">
+<div class="voice-agent-card rounded-xl">
+<!-- Header Section -->
+<header class="p-gutter flex justify-between items-center z-10">
+<div>
+<h1 class="font-display-logo text-display-logo text-primary leading-tight">SHIV SAGAR</h1>
+<p class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest">Voice Reservations</p>
+</div>
+<div class="bg-surface-container px-3 py-1 rounded-full flex items-center gap-2 border border-outline-variant/20">
+<span class="w-2 h-2 rounded-full bg-tertiary shadow-[0_0_8px_#58ea8a]" style="opacity: 0.5;"></span>
+<span class="font-code-res text-[12px] text-on-surface">IST</span>
+</div>
+</header>
+<!-- Main Content Area -->
+<main class="flex-1 flex flex-col px-gutter z-10">
+<!-- Status Badge -->
+<div class="mt-4 mb-lg flex justify-center">
+<div class="flex items-center gap-2 bg-primary/10 px-4 py-2 rounded-full border border-primary/20">
+<span class="material-symbols-outlined text-primary text-[20px] pulse-animation">sync</span>
+<span class="text-primary font-label-caps text-label-caps">Confirming...</span>
+</div>
+</div>
+<!-- Transcript Bubble -->
+<div class="mb-md">
+<p class="text-on-surface-variant font-body-sm mb-2 ml-1">Agent</p>
+<div class="bg-surface-container-high p-md rounded-2xl rounded-tl-none border border-white/5">
+<p class="text-on-surface font-body-md leading-relaxed">
+            I've found a table for you. Please confirm the details below.
+          </p>
+</div>
+</div>
+<!-- Confirmation UI (Inset Card) -->
+<div class="bg-surface-container-low p-md rounded-2xl border border-white/10 relative overflow-hidden">
+<!-- Decoration -->
+<div class="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-full -mr-16 -mt-16 blur-3xl"></div>
+<p class="font-label-caps text-label-caps text-outline uppercase mb-4 tracking-wider">Your selection</p>
+<div class="space-y-4">
+<div>
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Standard Dining</h2>
+<div class="flex items-baseline gap-2 mt-1">
+<span class="font-body-md text-on-surface-variant">Friday, 4 July 2026 ·</span>
+<span class="font-code-res text-code-res text-primary-container font-bold tracking-tight">7:00 PM IST</span>
+</div>
+</div>
+<div class="pt-2">
+<p class="font-label-caps text-[10px] text-outline uppercase mb-3">Other Available Times</p>
+<div class="flex flex-wrap gap-2">
+<button class="px-4 py-2 rounded-lg border border-outline-variant hover:border-primary/50 transition-colors bg-surface-variant/30">
+<span class="font-code-res text-sm text-on-surface">6:30 PM IST</span>
+</button>
+<button class="px-4 py-2 rounded-lg border border-outline-variant hover:border-primary/50 transition-colors bg-surface-variant/30">
+<span class="font-code-res text-sm text-on-surface">7:30 PM IST</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Prompt text -->
+<div class="mt-lg text-center">
+<p class="font-body-md text-on-surface/80 italic">
+          "Say <span class="text-primary font-semibold">'yes'</span> to confirm, or pick another time."
+        </p>
+</div>
+</main>
+<!-- Footer / Interaction Shell -->
+<footer class="p-gutter flex flex-col items-center gap-4 z-10 pb-8">
+<!-- Voice Visualizer Placeholder -->
+<div class="flex items-center justify-center gap-1.5 h-8 mb-2">
+<div class="w-1 bg-primary/40 rounded-full h-3"></div>
+<div class="w-1 bg-primary/60 rounded-full h-5"></div>
+<div class="w-1 bg-primary rounded-full h-8"></div>
+<div class="w-1 bg-primary/60 rounded-full h-4"></div>
+<div class="w-1 bg-primary/40 rounded-full h-2"></div>
+</div>
+<div class="flex items-center justify-center w-full relative">
+<!-- End Call Button -->
+<div class="flex flex-col items-center gap-2">
+  <button class="w-16 h-16 rounded-full bg-gradient-to-br from-[#EF4444] to-[#DC2626] flex items-center justify-center shadow-lg active:scale-95 transition-transform group pulse-animation saffron-glow">
+    <span class="material-symbols-outlined text-white text-3xl group-hover:rotate-12 transition-transform" style="font-variation-settings: 'FILL' 1;">call_end</span>
+  </button>
+  <span class="font-label-caps text-[10px] text-error uppercase tracking-widest font-bold">End Call</span>
+</div>
+</div>
+<p class="font-body-sm text-on-surface-variant opacity-60 text-center">
+        You can interrupt the agent at any time
+      </p>
+</footer>
+<!-- Decorative Paisley Watermark -->
+<div class="paisley-watermark"></div>
+</div>
+<!-- Interactive Logic for visual feedback -->
+<script>
+    // Simple pulse animation for the IST badge
+    const istBadge = document.querySelector('.bg-tertiary');
+    setInterval(() => {
+      istBadge.style.opacity = istBadge.style.opacity === '0.5' ? '1' : '0.5';
+    }, 1000);
+
+    // Micro-interaction for buttons
+    const timeChips = document.querySelectorAll('button');
+    timeChips.forEach(chip => {
+      chip.addEventListener('click', () => {
+        chip.classList.add('scale-95');
+        setTimeout(() => chip.classList.remove('scale-95'), 100);
+      });
+    });
+  </script>
+
+
+</body></html>

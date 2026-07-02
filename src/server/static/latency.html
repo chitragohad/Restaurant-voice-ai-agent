@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Latency Explorer | Shiv Sagar Voice Agent</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=DM+Sans:wght@400;500&family=JetBrains+Mono:wght@500&family=Plus+Jakarta+Sans:wght@600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/static/latency.css?v=1" />
+</head>
+<body>
+
+  <header class="lat-header">
+    <div>
+      <h1>Latency Explorer</h1>
+      <p class="subtitle">Real timing from your last voice session — step through, see bottlenecks</p>
+    </div>
+    <div style="display:flex;gap:1rem;align-items:center;flex-wrap:wrap">
+      <button class="btn btn-secondary" id="btn-refresh">↻ Refresh</button>
+      <a href="/">← Voice Reservations</a>
+      <a href="/architecture">Architecture</a>
+    </div>
+  </header>
+
+  <div class="lat-layout">
+
+    <div id="empty-state" class="empty-state hidden">
+      <h2>No voice session recorded yet</h2>
+      <p>Complete a voice call on the homepage first — book a table, cancel, or ask a question. When you end the call, return here to see real latency breakdown.</p>
+      <a href="/" class="btn btn-primary" style="display:inline-block;text-decoration:none">Start a Voice Call</a>
+      <div class="session-picker" id="session-list"></div>
+    </div>
+
+    <div id="latency-content" class="hidden">
+
+      <p id="session-meta" style="font-size:0.8rem;color:var(--text-dim);font-family:var(--font-mono)"></p>
+
+      <div class="summary-bar" id="summary-bar"></div>
+
+      <div class="waterfall-wrap">
+        <h2>Time by component (optimization targets)</h2>
+        <div class="waterfall-bars" id="waterfall-bars"></div>
+      </div>
+
+      <div class="controls-bar">
+        <div>
+          <div class="step-indicator">Step <strong id="step-num">1</strong> of <strong id="step-total">1</strong></div>
+          <div class="progress-track"><div class="progress-fill" id="progress-fill"></div></div>
+        </div>
+        <div class="ctrl-btns">
+          <button class="btn btn-secondary" id="btn-reset">↺ Reset</button>
+          <button class="btn btn-secondary" id="btn-prev">← Prev</button>
+          <button class="btn btn-play" id="btn-play">▶ Play Flow</button>
+          <button class="btn btn-primary" id="btn-next">Next →</button>
+        </div>
+      </div>
+
+      <div class="diagram-wrap">
+        <svg id="diagram" class="diagram-svg" viewBox="0 0 900 520" xmlns="http://www.w3.org/2000/svg"></svg>
+      </div>
+
+      <div class="step-detail">
+        <div class="detail-card">
+          <h3>Step detail</h3>
+          <div class="step-title" id="step-title"></div>
+          <div class="duration-pill" id="duration-pill"></div>
+          <p class="step-desc" id="step-desc"></p>
+          <div class="io-grid">
+            <div class="io-block input">
+              <div class="io-label">Input</div>
+              <pre id="io-input"></pre>
+            </div>
+            <div class="io-block output">
+              <div class="io-label">Output</div>
+              <pre id="io-output"></pre>
+            </div>
+          </div>
+          <div class="breakdown-list hidden" id="breakdown-list"></div>
+        </div>
+
+        <div class="dialogue-panel">
+          <h3>Conversation at this step</h3>
+          <div class="dialogue-thread" id="dialogue-thread"></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <script src="/static/latency.js?v=1"></script>
+</body>
+</html>

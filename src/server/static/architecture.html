@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Architecture Explorer | Shiv Sagar Voice Agent</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=DM+Sans:wght@400;500&family=JetBrains+Mono:wght@500&family=Plus+Jakarta+Sans:wght@600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/static/architecture.css?v=1" />
+</head>
+<body>
+
+  <header class="arch-header">
+    <div>
+      <h1>Architecture Explorer</h1>
+      <p class="subtitle">Step through information flow — inputs, outputs, guardrails &amp; storage</p>
+    </div>
+    <a href="/" class="arch-back">← Back to Voice Reservations</a>
+  </header>
+
+  <div class="arch-layout">
+
+    <!-- Scenario picker -->
+    <aside class="scenario-panel">
+      <h2>Pick a scenario</h2>
+
+      <button class="scenario-btn active" data-scenario="book">
+        Book a Table
+        <span class="intent">intent: book_new</span>
+      </button>
+      <button class="scenario-btn" data-scenario="reschedule">
+        Update Reservation
+        <span class="intent">intent: reschedule_reservation</span>
+      </button>
+      <button class="scenario-btn" data-scenario="cancel">
+        Cancel Reservation
+        <span class="intent">intent: cancel_reservation</span>
+      </button>
+      <button class="scenario-btn" data-scenario="menu">
+        Ask About Menu
+        <span class="intent">guardrail redirect</span>
+      </button>
+
+      <div class="legend">
+        <h3>Diagram legend</h3>
+        <div class="legend-item"><span class="legend-dot" style="background:#60a5fa"></span> User / Browser</div>
+        <div class="legend-item"><span class="legend-dot" style="background:#ffc66b"></span> FastAPI Server</div>
+        <div class="legend-item"><span class="legend-dot" style="background:#c084fc"></span> Gemini Live API</div>
+        <div class="legend-item"><span class="legend-dot" style="background:#a78bfa"></span> SYSTEM_PROMPT</div>
+        <div class="legend-item"><span class="legend-dot" style="background:#fb923c"></span> Tool execution</div>
+        <div class="legend-item"><span class="legend-dot" style="background:#34d399"></span> Data storage</div>
+        <div class="legend-item"><span class="legend-dot" style="background:#4ade80"></span> Google integrations</div>
+        <div class="legend-item"><span class="legend-dot" style="background:#f472b6"></span> Guardrails</div>
+      </div>
+
+      <p style="font-size:0.7rem;color:var(--text-dim);margin-top:1rem;line-height:1.4">
+        Keyboard: <kbd style="font-family:var(--font-mono)">→</kbd> next · <kbd style="font-family:var(--font-mono)">←</kbd> prev · <kbd style="font-family:var(--font-mono)">Space</kbd> play/pause
+      </p>
+    </aside>
+
+    <main class="main-panel">
+
+      <!-- Controls -->
+      <div class="controls-bar">
+        <div>
+          <div class="step-indicator">Step <strong id="step-num">1</strong> of <strong id="step-total">14</strong></div>
+          <div class="progress-track"><div class="progress-fill" id="progress-fill" style="width:7%"></div></div>
+        </div>
+        <div class="ctrl-btns">
+          <button class="btn btn-secondary" id="btn-reset">↺ Reset</button>
+          <button class="btn btn-secondary" id="btn-prev">← Prev</button>
+          <button class="btn btn-play" id="btn-play">▶ Play Flow</button>
+          <button class="btn btn-primary" id="btn-next">Next →</button>
+        </div>
+      </div>
+
+      <!-- Diagram -->
+      <div class="diagram-wrap">
+        <svg id="diagram" class="diagram-svg" viewBox="0 0 900 520" xmlns="http://www.w3.org/2000/svg" aria-label="System architecture flow diagram"></svg>
+      </div>
+
+      <!-- Step detail + dialogue -->
+      <div class="step-detail">
+        <div class="detail-card">
+          <h3>Current step</h3>
+          <div class="step-title" id="step-title">Start voice session</div>
+          <p class="step-desc" id="step-desc"></p>
+          <div class="io-grid">
+            <div class="io-block input">
+              <div class="io-label">Input</div>
+              <pre id="io-input"></pre>
+            </div>
+            <div class="io-block output">
+              <div class="io-label">Output</div>
+              <pre id="io-output"></pre>
+            </div>
+          </div>
+          <div class="badges-row" id="badges-row"></div>
+        </div>
+
+        <div class="dialogue-panel">
+          <h3>Mock conversation (follow along)</h3>
+          <div class="dialogue-thread" id="dialogue-thread">
+            <p style="color:var(--text-dim);font-size:0.85rem;font-style:italic">Utterances appear as you advance through steps…</p>
+          </div>
+        </div>
+      </div>
+
+    </main>
+  </div>
+
+  <script src="/static/architecture.js?v=1"></script>
+</body>
+</html>

@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shiv Sagar | Premium Voice Reservations</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@500&family=Libre+Caslon+Text:wght@400;600&family=Plus+Jakarta+Sans:wght@600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/static/heritage.css?v=4" />
+</head>
+<body>
+
+  <!-- Inline icon sprite -->
+  <svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
+    <symbol id="icon-mic" viewBox="0 0 24 24"><path fill="currentColor" d="M12 14c1.66 0 3-1.34 3-3V5c0-1.66-1.34-3-3-3S9 3.34 9 5v6c0 1.66 1.34 3 3 3zm5-3c0 2.76-2.24 5-5 5s-5-2.24-5-5H5c0 3.53 2.61 6.43 6 6.92V21h2v-3.08c3.39-.49 6-3.39 6-6.92h-2z"/></symbol>
+    <symbol id="icon-call-end" viewBox="0 0 24 24"><path fill="currentColor" d="M12 9c-1.6 0-3.15.25-4.6.72v3.1c0 .39-.23.74-.56.9-.98.49-1.87 1.12-2.66 1.85-.18.18-.43.28-.7.28-.28 0-.53-.11-.71-.29L.29 13.08a.996.996 0 0 1 0-1.41C3.34 8.78 7.46 7 12 7s8.66 1.78 11.71 4.67c.18.18.29.43.29.71 0 .28-.11.53-.29.71l-2.48 2.48a.996.996 0 0 1-.71.29c-.27 0-.52-.11-.7-.28-.79-.74-1.69-1.36-2.67-1.85a1.003 1.003 0 0 1-.56-.9v-3.1C15.15 9.25 13.6 9 12 9z"/></symbol>
+    <symbol id="icon-restaurant" viewBox="0 0 24 24"><path fill="currentColor" d="M11 9H9V2H7v7H5V2H3v7c0 2.12 1.66 3.84 3.75 3.97V22h2.5v-9.03C11.34 12.84 13 11.12 13 9V2h-2v7zm5-3v8h2.5v8H21V2c-2.76 0-5 2.24-5 4z"/></symbol>
+    <symbol id="icon-calendar" viewBox="0 0 24 24"><path fill="currentColor" d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V10h14v10z"/></symbol>
+    <symbol id="icon-cancel" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></symbol>
+    <symbol id="icon-arrow" viewBox="0 0 24 24"><path fill="currentColor" d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></symbol>
+    <symbol id="icon-external" viewBox="0 0 24 24"><path fill="currentColor" d="M19 19H5V5h7V3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"/></symbol>
+    <symbol id="icon-shield" viewBox="0 0 24 24"><path fill="currentColor" d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/></symbol>
+    <symbol id="icon-timer" viewBox="0 0 24 24"><path fill="currentColor" d="M15 1H9v2h6V1zm-4 13h2V8h-2v6zm8.03-6.61l1.42-1.42c-.43-.51-.9-.99-1.41-1.41l-1.42 1.42C16.07 4.74 14.12 4 12 4c-4.97 0-9 4.03-9 9s4.02 9 9 9 9-4.03 9-9c0-2.12-.74-4.07-1.97-5.61zM12 20c-3.87 0-7-3.13-7-7s3.13-7 7-7 7 3.13 7 7-3.13 7-7 7z"/></symbol>
+    <symbol id="icon-voice" viewBox="0 0 24 24"><path fill="currentColor" d="M12 15c1.66 0 2.99-1.34 2.99-3L15 6c0-1.66-1.34-3-3-3S9 4.34 9 6v6c0 1.66 1.34 3 3 3zm5.3-3c0 3-2.54 5.1-5.3 5.1S6.7 15 6.7 12H5c0 3.41 2.72 6.23 6 6.72V22h2v-3.28c3.28-.48 6-3.3 6-6.72h-1.7z"/></symbol>
+    <symbol id="icon-check" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></symbol>
+    <symbol id="icon-verified" viewBox="0 0 24 24"><path fill="currentColor" d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></symbol>
+  </svg>
+
+  <header class="site-header">
+    <div class="container">
+      <a href="/" class="brand">Shiv Sagar</a>
+      <nav class="nav">
+        <a href="#voice" class="active">Reserve by Voice</a>
+        <a href="#how-it-works">How It Works</a>
+        <a href="#manage">Manage Booking</a>
+        <a href="/architecture">Architecture</a>
+        <a href="/latency">Latency</a>
+      </nav>
+      <div class="header-right">
+        <div class="ist-pill">
+          <span>IST</span>
+          <span>Asia/Kolkata</span>
+        </div>
+        <a class="ext-link" href="https://shivsagar.in" target="_blank" rel="noopener">
+          Visit shivsagar.in
+          <svg class="icon icon-sm"><use href="#icon-external"/></svg>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="hero-bg"></div>
+
+    <section id="voice" class="container hero">
+      <div class="hero-copy">
+        <h1>Hold your table in seconds — <em>just speak.</em></h1>
+        <p>No phone number. No email. No name. Get a Reservation Code and arrive at Shiv Sagar for an effortless dining experience.</p>
+        <div class="hero-actions">
+          <button type="button" id="hero-start-btn" class="btn btn-primary">
+            <svg class="icon"><use href="#icon-mic"/></svg>
+            Start Voice Reservation
+          </button>
+          <a href="#how-it-works" class="btn btn-outline">How It Works</a>
+        </div>
+        <div class="tags">
+          <span class="tag">Standard Dining</span>
+          <span class="tag">Large Group 6+</span>
+          <span class="tag">Outdoor/Patio</span>
+          <span class="tag">Special Occasion</span>
+          <span class="tag">Bar/Lounge</span>
+        </div>
+      </div>
+
+      <div class="hero-panel">
+        <div id="voice-panel" class="voice-state-idle">
+          <div class="paisley-watermark"></div>
+
+          <div class="panel-header">
+            <h2>Shiv Sagar</h2>
+            <div class="panel-sub">
+              <span>Voice Reservations</span>
+              <span class="badge-ist">IST</span>
+            </div>
+          </div>
+
+          <p id="voice-status">Tap the microphone to start</p>
+
+          <div class="panel-body">
+            <div id="transcript-placeholder">"I'd like a table for Friday evening at 7 PM IST..."</div>
+            <div id="transcript" class="hidden"></div>
+            <div id="wave-container" class="hidden">
+              <span></span><span></span><span></span><span></span><span></span>
+            </div>
+            <p id="barge-hint" class="hidden">You can interrupt the agent at any time</p>
+          </div>
+
+          <div id="success-panel" class="hidden">
+            <div class="success-header">
+              <svg class="icon"><use href="#icon-check"/></svg>
+              Reservation confirmed
+            </div>
+            <div class="code-card">
+              <p class="label">RESERVATION CODE</p>
+              <p id="reservation-code" title="Click to copy">TABLE-—</p>
+              <p style="margin-top:1rem;font-size:14px;color:var(--text-muted)">Show this code when you arrive.</p>
+            </div>
+            <div id="reservation-details"></div>
+            <a href="/latency" id="latency-link" class="latency-cta hidden">View latency breakdown →</a>
+            <button type="button" id="success-dismiss">Continue Call</button>
+          </div>
+
+          <div class="mic-area">
+            <div class="mic-wrap">
+              <div id="loading-ring" class="hidden">
+                <svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="48" fill="none" stroke="#e8a838" stroke-width="2" stroke-dasharray="240 60" stroke-linecap="round"/></svg>
+              </div>
+              <div id="mic-pulse" class="hidden pulse-red"></div>
+              <button type="button" id="micBtn" aria-label="Start voice call">
+                <svg id="micIcon" class="icon-lg"><use href="#icon-mic"/></svg>
+              </button>
+            </div>
+            <span id="micLabel">Start Call</span>
+            <p id="mic-helper" class="hidden">Allow microphone access when your browser prompts you</p>
+          </div>
+
+          <div class="panel-info">
+            <h3>What I can help with</h3>
+            <ul>
+              <li>
+                <svg class="icon"><use href="#icon-restaurant"/></svg>
+                <span>Book a new table (no phone or email)</span>
+              </li>
+              <li>
+                <svg class="icon"><use href="#icon-cancel"/></svg>
+                <span>Reschedule or cancel with Reservation Code</span>
+              </li>
+              <li>
+                <svg class="icon"><use href="#icon-calendar"/></svg>
+                <span>Check availability — all times in IST</span>
+              </li>
+            </ul>
+          </div>
+          <div class="panel-footer">
+            <a href="https://shivsagar.in" target="_blank" rel="noopener">
+              Menu &amp; hours <svg class="icon icon-sm"><use href="#icon-arrow"/></svg> shivsagar.in
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <section id="how-it-works" class="section container">
+      <h2>How Voice Reservations Work</h2>
+      <div class="steps">
+        <div class="step"><div class="step-num">1</div><h3>Greet</h3><p>Tell us what you need</p></div>
+        <div class="step"><div class="step-num">2</div><h3>Occasion</h3><p>Pick your dining style</p></div>
+        <div class="step"><div class="step-num">3</div><h3>Time</h3><p>Preferred day &amp; time (IST)</p></div>
+        <div class="step"><div class="step-num">4</div><h3>Confirm</h3><p>Your slot or two alternatives</p></div>
+        <div class="step"><div class="step-num">5</div><h3>Code</h3><p>Receive TABLE-XXX</p></div>
+      </div>
+      <div class="cards-2">
+        <div class="card">
+          <div class="card-row">
+            <svg class="icon" style="color:var(--primary)"><use href="#icon-shield"/></svg>
+            <h3>What we don't ask</h3>
+          </div>
+          <p>No phone, email, or full name. Your Reservation Code is your only identifier.</p>
+        </div>
+        <div class="card">
+          <div class="card-row">
+            <svg class="icon" style="color:var(--primary)"><use href="#icon-verified"/></svg>
+            <h3>On confirm</h3>
+          </div>
+          <p>Calendar hold, kitchen log entry, and a 15-minute table hold when you arrive.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section container">
+      <div class="cards-3">
+        <div class="card">
+          <div class="card-icon"><svg class="icon"><use href="#icon-shield"/></svg></div>
+          <h3>Privacy First</h3>
+          <p>Code-only identity. No account creation. Your voice is your key.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon"><svg class="icon"><use href="#icon-timer"/></svg></div>
+          <h3>15-Minute Hold</h3>
+          <p>Arrive on time and show your code to our host. Table guaranteed.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon"><svg class="icon"><use href="#icon-voice"/></svg></div>
+          <h3>Book · Reschedule · Cancel</h3>
+          <p>Full control via voice. Real-time sync with floor management.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="manage" class="section container">
+      <div class="manage-card">
+        <div class="paisley-watermark"></div>
+        <h2>Manage Your Reservation</h2>
+        <p>Say your code on a voice call to reschedule or cancel.</p>
+        <div class="form-group">
+          <label for="manage-code">Reservation Code</label>
+          <input id="manage-code" type="text" placeholder="TABLE-XXX" autocomplete="off" />
+          <p class="form-hint">Tap <strong>Start Call</strong> and say "reschedule TABLE-XXX" or "cancel TABLE-XXX".</p>
+          <button type="button" id="manage-start-btn" class="btn btn-primary" style="width:100%">
+            <svg class="icon"><use href="#icon-mic"/></svg>
+            Start Voice to Manage
+          </button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <a href="https://shivsagar.in" target="_blank" rel="noopener">Menu, hours &amp; details → <strong style="color:var(--text)">shivsagar.in</strong></a>
+      <p>© Shiv Sagar Hospitality · Heritage Tech</p>
+    </div>
+  </footer>
+
+  <script src="/static/voice.js?v=10"></script>
+</body>
+</html>

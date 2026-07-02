@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Shiv Sagar Design System</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Text:wght@400;600&family=DM+Sans:wght@400;500&family=Plus+Jakarta+Sans:wght@600&family=JetBrains+Mono:wght@500&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@100..900&family=Libre+Caslon+Text:wght@100..900&family=Plus+Jakarta+Sans:wght@100..900&display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "surface-container-lowest": "#0a0f14",
+                      "on-primary-container": "#5f3f00",
+                      "primary-fixed": "#ffddaf",
+                      "surface": "#0f1419",
+                      "on-tertiary-container": "#005126",
+                      "inverse-on-surface": "#2c3136",
+                      "on-tertiary-fixed": "#00210c",
+                      "secondary-fixed": "#ffdbd1",
+                      "secondary-fixed-dim": "#ffb5a0",
+                      "on-secondary-container": "#ff9b7f",
+                      "primary-container": "#e8a838",
+                      "outline-variant": "#504535",
+                      "primary-fixed-dim": "#fdba49",
+                      "on-secondary-fixed-variant": "#802a10",
+                      "secondary": "#ffb5a0",
+                      "on-error": "#690005",
+                      "on-primary-fixed-variant": "#614000",
+                      "surface-dim": "#0f1419",
+                      "on-primary": "#432c00",
+                      "surface-container": "#1b2025",
+                      "on-tertiary": "#003919",
+                      "surface-bright": "#353a3f",
+                      "tertiary-fixed-dim": "#4de082",
+                      "on-surface-variant": "#d5c4af",
+                      "surface-container-highest": "#30353b",
+                      "tertiary-fixed": "#6dfe9c",
+                      "surface-container-low": "#171c21",
+                      "on-background": "#dee3ea",
+                      "surface-tint": "#fdba49",
+                      "outline": "#9d8e7c",
+                      "on-surface": "#dee3ea",
+                      "surface-container-high": "#252a30",
+                      "surface-variant": "#30353b",
+                      "error": "#ffb4ab",
+                      "secondary-container": "#802a10",
+                      "primary": "#ffc66b",
+                      "on-secondary": "#601500",
+                      "inverse-surface": "#dee3ea",
+                      "inverse-primary": "#805600",
+                      "error-container": "#93000a",
+                      "on-primary-fixed": "#281800",
+                      "background": "#0f1419",
+                      "tertiary": "#58ea8a",
+                      "tertiary-container": "#34cd71",
+                      "on-error-container": "#ffdad6",
+                      "on-secondary-fixed": "#3b0900",
+                      "on-tertiary-fixed-variant": "#005227"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "base": "8px",
+                      "xs": "4px",
+                      "gutter": "16px",
+                      "sm": "12px",
+                      "lg": "40px",
+                      "md": "24px",
+                      "max_width": "520px"
+              },
+              "fontFamily": {
+                      "body-md": ["DM Sans"],
+                      "label-caps": ["DM Sans"],
+                      "headline-lg": ["Plus Jakarta Sans"],
+                      "headline-sm": ["Plus Jakarta Sans"],
+                      "body-sm": ["DM Sans"],
+                      "display-logo": ["Libre Caslon Text"],
+                      "code-res": ["JetBrains Mono"]
+              },
+              "fontSize": {
+                      "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                      "label-caps": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                      "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "600"}],
+                      "headline-sm": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                      "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                      "display-logo": ["32px", {"lineHeight": "40px", "letterSpacing": "0.02em", "fontWeight": "600"}],
+                      "code-res": ["16px", {"lineHeight": "24px", "fontWeight": "500"}]
+              }
+            },
+          },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            vertical-align: middle;
+        }
+        .saffron-glow {
+            box-shadow: 0 8px 32px rgba(232,168,56,0.25);
+        }
+        .mandala-watermark {
+            background-image: radial-gradient(circle at center, rgba(232, 168, 56, 0.03) 0%, transparent 70%);
+            position: relative;
+        }
+        .mandala-watermark::after {
+            content: '🌸'; /* Simplified representation of lotus/mandala for CSS art */
+            position: absolute;
+            bottom: -10px;
+            right: -10px;
+            font-size: 80px;
+            opacity: 0.05;
+            transform: rotate(-15deg);
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #0f1419;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #e8a83833;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body-md selection:bg-primary/30 custom-scrollbar">
+<!-- Top Navigation Anchor (As per Shared Components) -->
+<header class="fixed top-0 w-full z-50 bg-surface dark:bg-surface">
+<div class="flex items-center justify-center h-16 px-gutter max-w-max_width mx-auto">
+<h1 class="font-display-logo text-display-logo-mobile text-primary dark:text-primary">Shiv Sagar</h1>
+</div>
+</header>
+<main class="pt-24 pb-32 px-gutter max-w-max_width mx-auto space-y-lg">
+<!-- Hero Section -->
+<section class="text-center space-y-base">
+<div class="inline-block p-base rounded-full bg-primary-container/10 mb-sm">
+<span class="material-symbols-outlined text-primary text-[40px]">restaurant</span>
+</div>
+<h2 class="font-display-logo text-headline-lg text-primary">Shiv Sagar</h2>
+<p class="font-body-md text-on-surface-variant max-w-[400px] mx-auto">
+                Where warm North Indian hospitality meets modern, frictionless technology. A design system crafted for serenity and precision.
+            </p>
+</section>
+<!-- Color Palette -->
+<section class="space-y-md">
+<h3 class="font-headline-sm text-on-surface flex items-center gap-xs">
+<span class="material-symbols-outlined text-primary">palette</span>
+                Color Palette
+            </h3>
+<div class="grid grid-cols-2 gap-base">
+<div class="p-base rounded-xl bg-surface-container-low border border-white/5 space-y-xs">
+<div class="h-12 w-full rounded-lg bg-[#0F1419]"></div>
+<p class="font-label-caps text-on-surface">Background Primary</p>
+<p class="font-code-res text-[10px] text-on-surface-variant">#0F1419</p>
+</div>
+<div class="p-base rounded-xl bg-surface-container-low border border-white/5 space-y-xs">
+<div class="h-12 w-full rounded-lg bg-[#1A2332]"></div>
+<p class="font-label-caps text-on-surface">Elevated</p>
+<p class="font-code-res text-[10px] text-on-surface-variant">#1A2332</p>
+</div>
+<div class="p-base rounded-xl bg-surface-container-low border border-white/5 space-y-xs">
+<div class="h-12 w-full rounded-lg bg-[#E8A838]"></div>
+<p class="font-label-caps text-on-surface">Saffron Gold</p>
+<p class="font-code-res text-[10px] text-on-surface-variant">#E8A838</p>
+</div>
+<div class="p-base rounded-xl bg-surface-container-low border border-white/5 space-y-xs">
+<div class="h-12 w-full rounded-lg bg-[#C45C3E]"></div>
+<p class="font-label-caps text-on-surface">Terracotta</p>
+<p class="font-code-res text-[10px] text-on-surface-variant">#C45C3E</p>
+</div>
+<div class="p-base rounded-xl bg-surface-container-low border border-white/5 space-y-xs">
+<div class="h-12 w-full rounded-lg bg-[#4ADE80]"></div>
+<p class="font-label-caps text-on-surface">Emerald Success</p>
+<p class="font-code-res text-[10px] text-on-surface-variant">#4ADE80</p>
+</div>
+<div class="p-base rounded-xl bg-surface-container-low border border-white/5 space-y-xs">
+<div class="h-12 w-full rounded-lg bg-[#F87171]"></div>
+<p class="font-label-caps text-on-surface">Coral Error</p>
+<p class="font-code-res text-[10px] text-on-surface-variant">#F87171</p>
+</div>
+</div>
+</section>
+<!-- Typography Scale -->
+<section class="space-y-md">
+<h3 class="font-headline-sm text-on-surface flex items-center gap-xs">
+<span class="material-symbols-outlined text-primary">text_format</span>
+                Typography Scale
+            </h3>
+<div class="space-y-md p-md rounded-xl bg-surface-container border border-white/5">
+<div class="space-y-xs">
+<p class="text-[10px] font-label-caps text-on-surface-variant opacity-60">DISPLAY • 32PX</p>
+<p class="font-display-logo text-display-logo text-on-surface">Libre Caslon Text</p>
+</div>
+<div class="space-y-xs">
+<p class="text-[10px] font-label-caps text-on-surface-variant opacity-60">HEADING • 20PX</p>
+<p class="font-headline-sm text-headline-sm text-on-surface">Plus Jakarta Sans</p>
+</div>
+<div class="space-y-xs">
+<p class="text-[10px] font-label-caps text-on-surface-variant opacity-60">BODY • 16PX</p>
+<p class="font-body-md text-body-md text-on-surface">DM Sans (Standard)</p>
+</div>
+<div class="space-y-xs">
+<p class="text-[10px] font-label-caps text-on-surface-variant opacity-60">LABEL • 12PX</p>
+<p class="font-label-caps text-label-caps text-on-surface">CAPS LABELING SYSTEM</p>
+</div>
+<div class="space-y-xs">
+<p class="text-[10px] font-label-caps text-on-surface-variant opacity-60">CODE • 16PX</p>
+<p class="font-code-res text-code-res text-primary-container">JetBrains Mono: TABLE-B99</p>
+</div>
+</div>
+</section>
+<!-- Component Gallery -->
+<section class="space-y-md">
+<h3 class="font-headline-sm text-on-surface flex items-center gap-xs">
+<span class="material-symbols-outlined text-primary">widgets</span>
+                Component Gallery
+            </h3>
+<!-- Buttons -->
+<div class="space-y-sm">
+<p class="font-label-caps text-on-surface-variant">Button States</p>
+<div class="grid grid-cols-1 gap-base">
+<button class="h-12 w-full rounded-xl bg-gradient-to-r from-primary-container to-primary-fixed-dim text-on-primary-container font-headline-sm text-[16px] saffron-glow transition-transform active:scale-95">
+                        Primary Action
+                    </button>
+<button class="h-12 w-full rounded-xl border border-primary-container/30 text-primary font-body-md hover:bg-primary-container/5 transition-colors">
+                        Secondary Action
+                    </button>
+<button class="h-12 w-full rounded-xl bg-surface-container-highest/50 text-on-surface-variant/40 font-body-md cursor-not-allowed" disabled="">
+                        Disabled State
+                    </button>
+</div>
+</div>
+<!-- Status Badges -->
+<div class="space-y-sm">
+<p class="font-label-caps text-on-surface-variant">Status Badges</p>
+<div class="flex flex-wrap gap-sm">
+<span class="px-sm py-xs rounded-full bg-surface-container-high text-on-surface-variant font-label-caps flex items-center gap-xs">
+                        Idle
+                    </span>
+<span class="px-sm py-xs rounded-full bg-blue-500/10 text-blue-400 font-label-caps flex items-center gap-xs">
+<span class="w-1.5 h-1.5 rounded-full bg-blue-400 animate-pulse"></span>
+                        Connecting
+                    </span>
+<span class="px-sm py-xs rounded-full bg-tertiary-container/20 text-tertiary font-label-caps flex items-center gap-xs">
+<span class="material-symbols-outlined text-[14px]">graphic_eq</span>
+                        Listening
+                    </span>
+<span class="px-sm py-xs rounded-full bg-primary-container/20 text-primary font-label-caps flex items-center gap-xs">
+<span class="material-symbols-outlined text-[14px]">volume_up</span>
+                        Speaking
+                    </span>
+<span class="px-sm py-xs rounded-full bg-error-container/20 text-error font-label-caps flex items-center gap-xs">
+<span class="material-symbols-outlined text-[14px]">error</span>
+                        Error
+                    </span>
+</div>
+</div>
+<!-- Reservation Card -->
+<div class="space-y-sm">
+<p class="font-label-caps text-on-surface-variant">Reservation Card</p>
+<div class="mandala-watermark p-md rounded-xl bg-[#1A2332] border border-white/5 space-y-sm relative overflow-hidden">
+<div class="flex justify-between items-start">
+<div>
+<h4 class="font-headline-sm text-on-surface">Table Reservation</h4>
+<p class="font-body-sm text-on-surface-variant">Today • 7:30 PM</p>
+</div>
+<span class="material-symbols-outlined text-primary">verified</span>
+</div>
+<div class="border-t border-primary-container/20 pt-sm flex justify-between items-center">
+<span class="font-label-caps text-on-surface-variant">Confirmation Code</span>
+<code class="font-code-res text-primary-container bg-surface-container-highest px-base py-xs rounded-lg">TABLE-B99</code>
+</div>
+<div class="flex items-center gap-sm pt-xs">
+<div class="flex -space-x-2">
+<div class="w-8 h-8 rounded-full border-2 border-[#1A2332] bg-surface-bright flex items-center justify-center">
+<span class="material-symbols-outlined text-[16px]">person</span>
+</div>
+<div class="w-8 h-8 rounded-full border-2 border-[#1A2332] bg-primary-container flex items-center justify-center font-bold text-[12px] text-on-primary-container">4</div>
+</div>
+<p class="font-body-sm text-on-surface-variant">Guest Table</p>
+</div>
+</div>
+</div>
+<!-- Mic Button -->
+<div class="space-y-sm py-md flex flex-col items-center">
+<p class="font-label-caps text-on-surface-variant mb-base">The Signature Mic</p>
+<button class="w-24 h-24 rounded-full bg-gradient-to-br from-primary-container to-primary-fixed-dim saffron-glow flex items-center justify-center group active:scale-90 transition-all duration-300">
+<span class="material-symbols-outlined text-[40px] text-on-primary-container group-hover:scale-110 transition-transform" data-weight="fill">mic</span>
+</button>
+<div class="mt-md w-full h-8 flex items-center justify-center gap-1">
+<div class="w-1 bg-primary-container/60 rounded-full h-4 animate-[bounce_1s_infinite_100ms]"></div>
+<div class="w-1 bg-primary-container/60 rounded-full h-8 animate-[bounce_1s_infinite_300ms]"></div>
+<div class="w-1 bg-primary-container/60 rounded-full h-6 animate-[bounce_1s_infinite_500ms]"></div>
+<div class="w-1 bg-primary-container/60 rounded-full h-10 animate-[bounce_1s_infinite_200ms]"></div>
+<div class="w-1 bg-primary-container/60 rounded-full h-4 animate-[bounce_1s_infinite_400ms]"></div>
+</div>
+</div>
+</section>
+<!-- Design Details -->
+<section class="space-y-md">
+<h3 class="font-headline-sm text-on-surface flex items-center gap-xs">
+<span class="material-symbols-outlined text-primary">architecture</span>
+                Design Details
+            </h3>
+<div class="grid grid-cols-2 gap-base">
+<div class="p-base rounded-xl bg-surface-container border border-white/5 space-y-xs">
+<div class="h-20 w-20 rounded-xl border-t-4 border-l-4 border-primary mx-auto mb-sm"></div>
+<p class="font-label-caps text-center">16px Radius</p>
+</div>
+<div class="p-base rounded-xl bg-surface-container border border-white/5 space-y-xs">
+<div class="h-20 w-20 rounded-full border-2 border-primary ring-4 ring-primary/20 mx-auto mb-sm flex items-center justify-center">
+<span class="material-symbols-outlined text-primary">ads_click</span>
+</div>
+<p class="font-label-caps text-center">Gold Focus Rings</p>
+</div>
+</div>
+</section>
+<!-- Image Showcase -->
+<section class="space-y-md">
+<h3 class="font-headline-sm text-on-surface flex items-center gap-xs">
+<span class="material-symbols-outlined text-primary">image</span>
+                Atmospheric Visuals
+            </h3>
+<div class="rounded-xl overflow-hidden border border-white/5 shadow-2xl">
+<div class="bg-cover bg-center w-full h-64" data-alt="A cinematic, low-light photograph of a high-end North Indian restaurant interior. The scene features deep navy shadows, warm golden lighting from intricate hanging lamps, and marble tables with fine copper dinnerware. A subtle saffron glow emanates from a modern digital kiosk in the background. The atmosphere is serene, luxurious, and technologically advanced, echoing the premium Shiv Sagar brand identity." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBSmiXbM7alg1FAGyQAegPw7gnpH2EyCBSQpH0X-_vms7KpKo2M0heSLmYZG63NCocTTmBqBjHHSMiOsQ5lOikGlNNBxYQKTm7VTNzr1ohKhRTEb2XhL1tS8USZGtdKx1ecpA6k0CyKH8M3YQVC8CoE-K0sE-37lXLqoFhyTfG16lLq_UlcsGpuprEqm-h0sB2zv0koCYwoPRbnMkLZZYQdTNor2SBGkRtocrAEHB8ZupavwV4e5QLbu81ou1PnuZfGzUk3iYr8-DA')"></div>
+<div class="p-md bg-surface-container">
+<p class="font-body-sm text-on-surface-variant">The visual style uses high-contrast dark environments with warm focal points to emphasize the digital concierge experience.</p>
+</div>
+</div>
+</section>
+</main>
+<!-- Navigation Shell (Footer Component as requested by JSON) -->
+<footer class="w-full py-lg bg-transparent">
+<div class="flex flex-col items-center justify-center gap-base px-gutter text-center max-w-max_width mx-auto mb-24">
+<h2 class="font-display-logo text-primary">Shiv Sagar</h2>
+<div class="flex gap-md text-on-surface-variant font-body-sm">
+<a class="hover:text-primary transition-colors" href="#">Privacy Policy</a>
+<a class="hover:text-primary transition-colors" href="#">Terms of Service</a>
+<a class="hover:text-primary transition-colors" href="#">Contact Support</a>
+</div>
+<p class="font-body-sm text-on-surface-variant opacity-60">© Shiv Sagar Hospitality. Designed for serene dining.</p>
+</div>
+</footer>
+<!-- Bottom Nav Bar (JSON Mapping) -->
+<nav class="fixed bottom-0 left-1/2 -translate-x-1/2 w-full max-w-max_width flex justify-around items-center px-4 py-2 pb-safe bg-surface-container dark:bg-surface-container rounded-t-xl shadow-lg border-t border-outline-variant/20 z-50">
+<div class="flex flex-col items-center justify-center text-on-surface-variant p-2 hover:bg-surface-container-high transition-colors active:scale-90 transition-all duration-200">
+<span class="material-symbols-outlined">home</span>
+<span class="font-label-caps text-label-caps mt-1">Home</span>
+</div>
+<div class="flex flex-col items-center justify-center bg-secondary-container text-on-secondary-container rounded-xl px-4 py-2 active:scale-90 transition-all duration-200">
+<span class="material-symbols-outlined">event_seat</span>
+<span class="font-label-caps text-label-caps mt-1">Reservations</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant p-2 hover:bg-surface-container-high transition-colors active:scale-90 transition-all duration-200">
+<span class="material-symbols-outlined">help_center</span>
+<span class="font-label-caps text-label-caps mt-1">Support</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant p-2 hover:bg-surface-container-high transition-colors active:scale-90 transition-all duration-200">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-label-caps text-label-caps mt-1">Settings</span>
+</div>
+</nav>
+<script>
+        // Micro-interaction for Mic Button
+        const micBtn = document.querySelector('button .material-symbols-outlined[data-icon="mic"]')?.parentElement;
+        if (micBtn) {
+            micBtn.addEventListener('mousedown', () => {
+                micBtn.style.boxShadow = "0 4px 16px rgba(232,168,56,0.5)";
+            });
+            micBtn.addEventListener('mouseup', () => {
+                micBtn.style.boxShadow = "0 8px 32px rgba(232,168,56,0.25)";
+            });
+        }
+    </script>
+</body></html>

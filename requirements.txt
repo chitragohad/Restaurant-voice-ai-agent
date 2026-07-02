@@ -1,0 +1,16 @@
+# Core (Python 3.9+)
+fastapi>=0.115.0
+websockets>=12.0
+certifi>=2024.0.0
+uvicorn[standard]>=0.32.0
+python-dotenv>=1.0.0
+pydantic>=2.0.0
+google-api-python-client>=2.150.0
+google-auth-oauthlib>=1.2.0
+google-auth-httplib2>=0.2.0
+httpx>=0.27.0
+python-dateutil>=2.9.0
+pytz>=2024.1
+
+# Voice CLI (Python 3.10+): pip install openai-agents>=0.2.0
+# MCP server (Python 3.10+): pip install mcp>=1.0.0

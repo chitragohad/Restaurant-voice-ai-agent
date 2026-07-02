@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Shiv Sagar | Voice Reservations</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=DM+Sans:wght@400;500&family=Libre+Caslon+Text:wght@400;700&family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=JetBrains+Mono:wght@500&family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@100..900&family=Libre+Caslon+Text:wght@100..900&family=Plus+Jakarta+Sans:wght@100..900&display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+        .mic-glow {
+            box-shadow: 0 8px 32px rgba(232, 168, 56, 0.25);
+        }
+        .paisley-watermark {
+            position: absolute;
+            bottom: -20px;
+            right: -20px;
+            width: 180px;
+            height: 180px;
+            opacity: 0.04;
+            pointer-events: none;
+            background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M50 0C25 0 0 25 0 50s25 50 50 50 50-25 50-50S75 0 50 0zm0 90C28 90 10 72 10 50S28 10 50 10s40 18 40 40-18 40-40 40z' fill='%23FFFFFF'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-size: contain;
+        }
+        @keyframes pulse-ring {
+            0% { transform: scale(0.95); opacity: 0.5; }
+            50% { transform: scale(1.05); opacity: 0.3; }
+            100% { transform: scale(0.95); opacity: 0.5; }
+        }
+        .animate-pulse-ring {
+            animation: pulse-ring 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container-lowest": "#0a0f14",
+                        "surface-variant": "#30353b",
+                        "on-primary-container": "#5f3f00",
+                        "surface-container-high": "#252a30",
+                        "on-background": "#dee3ea",
+                        "primary-container": "#e8a838",
+                        "outline-variant": "#504535",
+                        "surface-bright": "#353a3f",
+                        "inverse-surface": "#dee3ea",
+                        "inverse-primary": "#805600",
+                        "on-primary-fixed-variant": "#614000",
+                        "outline": "#9d8e7c",
+                        "on-surface-variant": "#d5c4af",
+                        "primary": "#ffc66b",
+                        "secondary-container": "#802a10",
+                        "tertiary": "#58ea8a",
+                        "on-error-container": "#ffdad6",
+                        "on-primary-fixed": "#281800",
+                        "surface-container": "#1b2025",
+                        "secondary-fixed-dim": "#ffb5a0",
+                        "inverse-on-surface": "#2c3136",
+                        "on-secondary": "#601500",
+                        "on-primary": "#432c00",
+                        "surface-container-highest": "#30353b",
+                        "surface-dim": "#0f1419",
+                        "primary-fixed-dim": "#fdba49",
+                        "primary-fixed": "#ffddaf",
+                        "on-tertiary-container": "#005126",
+                        "surface": "#0f1419",
+                        "on-surface": "#dee3ea",
+                        "on-secondary-container": "#ff9b7f",
+                        "surface-tint": "#fdba49",
+                        "secondary-fixed": "#ffdbd1",
+                        "background": "#0f1419",
+                        "on-error": "#690005",
+                        "on-secondary-fixed-variant": "#802a10",
+                        "error-container": "#93000a",
+                        "on-tertiary": "#003919",
+                        "on-secondary-fixed": "#3b0900",
+                        "error": "#ffb4ab",
+                        "tertiary-fixed-dim": "#4de082",
+                        "tertiary-container": "#34cd71",
+                        "tertiary-fixed": "#6dfe9c",
+                        "secondary": "#ffb5a0",
+                        "on-tertiary-fixed-variant": "#005227",
+                        "surface-container-low": "#171c21",
+                        "on-tertiary-fixed": "#00210c"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "sm": "12px",
+                        "max_width": "520px",
+                        "md": "24px",
+                        "xs": "4px",
+                        "lg": "40px",
+                        "gutter": "16px",
+                        "base": "8px"
+                    },
+                    "fontFamily": {
+                        "headline-lg": ["Plus Jakarta Sans"],
+                        "code-res": ["JetBrains Mono"],
+                        "label-caps": ["DM Sans"],
+                        "body-md": ["DM Sans"],
+                        "headline-sm": ["Plus Jakarta Sans"],
+                        "display-logo": ["Libre Caslon Text"],
+                        "body-sm": ["DM Sans"]
+                    },
+                    "fontSize": {
+                        "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "600"}],
+                        "code-res": ["16px", {"lineHeight": "24px", "fontWeight": "500"}],
+                        "label-caps": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "headline-sm": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                        "display-logo": ["32px", {"lineHeight": "40px", "letterSpacing": "0.02em", "fontWeight": "600"}],
+                        "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}]
+                    }
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-surface text-on-surface min-h-screen flex items-center justify-center p-gutter selection:bg-primary-container selection:text-on-primary-container">
+<!-- Main Navigation (TopAppBar from Shared Components) -->
+<header class="fixed top-0 left-0 right-0 h-16 flex justify-between items-center px-gutter w-full max-w-max_width mx-auto bg-surface z-50">
+<div class="font-display-logo text-display-logo text-primary">SHIV SAGAR</div>
+<div class="flex items-center gap-4">
+<button class="text-on-surface-variant hover:opacity-80 transition-opacity active:scale-95 transition-transform">
+<span class="material-symbols-outlined" data-icon="schedule">schedule</span>
+</button>
+</div>
+</header>
+<!-- Voice Reservation Panel Card -->
+<main class="relative w-full max-w-[480px] min-h-[720px] bg-surface-container-low rounded-xl border border-white/5 flex flex-col overflow-hidden mt-16 mb-20 shadow-2xl">
+<div class="paisley-watermark"></div>
+<!-- Card Header -->
+<div class="px-md pt-md pb-base flex flex-col items-center text-center">
+<h1 class="font-[Cormorant Garamond] text-primary italic text-[24px] tracking-wide">Shiv Sagar</h1>
+<div class="flex items-center gap-2 mt-1">
+<h2 class="font-body-sm text-body-sm text-on-surface-variant">Voice Reservations</h2>
+<span class="px-2 py-0.5 bg-surface-variant rounded-full text-[10px] font-label-caps text-on-surface-variant uppercase tracking-tighter">IST</span>
+</div>
+</div>
+<!-- Status Area -->
+<div class="flex-1 flex flex-col items-center justify-center px-md">
+<div class="h-[120px] flex items-center justify-center text-center">
+<p class="font-body-md text-body-md text-on-surface-variant opacity-60 transition-opacity duration-500" id="voice-status">
+                    Tap the microphone to start
+                </p>
+</div>
+<!-- Transcript Ghost Lines -->
+<div class="w-full space-y-4 px-4 opacity-10">
+<div class="h-px bg-on-surface-variant w-3/4 mx-auto"></div>
+<div class="h-px bg-on-surface-variant w-1/2 mx-auto"></div>
+<div class="h-px bg-on-surface-variant w-2/3 mx-auto"></div>
+</div>
+</div>
+<!-- Centerpiece: Mic Button -->
+<div class="py-lg flex flex-col items-center relative z-10">
+<div class="relative group">
+<!-- Pulse effect for active state (hidden by default) -->
+<div class="absolute -inset-4 bg-primary/20 rounded-full blur-xl hidden animate-pulse-ring" id="mic-pulse"></div>
+<button class="relative w-[120px] h-[120px] rounded-full bg-gradient-to-br from-[#E8A838] to-[#B8842A] mic-glow flex items-center justify-center text-white transition-all duration-300 hover:scale-105 active:scale-90" id="mic-btn">
+<span class="material-symbols-outlined !text-[48px]" style="font-variation-settings: 'FILL' 1;">mic</span>
+</button>
+</div>
+<span class="mt-md font-headline-sm text-headline-sm text-primary tracking-wide" id="mic-label">Start Call</span>
+</div>
+<!-- Bottom Info Card -->
+<div class="mx-md mb-md p-md bg-surface-container-high rounded-lg border border-white/5 relative">
+<h3 class="font-headline-sm text-body-sm text-primary mb-sm">What I can help with</h3>
+<ul class="space-y-sm">
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary !text-[18px] mt-0.5">restaurant</span>
+<p class="font-body-sm text-body-sm text-on-surface">Book a new table (no phone or email)</p>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary !text-[18px] mt-0.5">event_busy</span>
+<p class="font-body-sm text-body-sm text-on-surface">Reschedule or cancel with Reservation Code</p>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary !text-[18px] mt-0.5">calendar_month</span>
+<p class="font-body-sm text-body-sm text-on-surface">Check availability</p>
+</li>
+</ul>
+</div>
+<!-- Footer Note -->
+<div class="pb-md px-md text-center">
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors inline-flex items-center gap-1" href="https://shivsagar.in" target="_blank">
+                Menu & hours <span class="material-symbols-outlined !text-[12px]">arrow_forward</span> shivsagar.in
+            </a>
+</div>
+</main>
+<!-- Bottom Navigation (BottomNavBar from Shared Components) -->
+<nav class="fixed bottom-0 left-1/2 -translate-x-1/2 w-full max-w-max_width z-50 flex justify-around items-center px-4 py-2 bg-surface-container rounded-t-xl shadow-[0_-4px_16px_rgba(0,0,0,0.2)] md:hidden">
+<a class="flex flex-col items-center justify-center bg-secondary-container text-on-secondary-container rounded-full px-4 py-1 active:scale-90 transition-transform" href="#">
+<span class="material-symbols-outlined" data-icon="lotus" style="font-variation-settings: 'FILL' 1;">looks</span>
+<span class="font-label-caps text-label-caps">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary transition-colors active:scale-90 transition-transform" href="#">
+<span class="material-symbols-outlined" data-icon="history">history</span>
+<span class="font-label-caps text-label-caps">Activity</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary transition-colors active:scale-90 transition-transform" href="#">
+<span class="material-symbols-outlined" data-icon="diya">bia</span>
+<span class="font-label-caps text-label-caps">Special</span>
+</a>
+</nav>
+<script>
+        const micBtn = document.getElementById('mic-btn');
+        const micLabel = document.getElementById('mic-label');
+        const micPulse = document.getElementById('mic-pulse');
+        const statusText = document.getElementById('voice-status');
+        let isListening = false;
+
+        micBtn.addEventListener('click', () => {
+            isListening = !isListening;
+
+            if (isListening) {
+                // Listening state
+                micLabel.innerText = "End Call";
+                micPulse.classList.remove('hidden');
+                statusText.innerText = "I'm listening...";
+                statusText.classList.add('text-tertiary', 'opacity-100');
+                statusText.classList.remove('text-on-surface-variant', 'opacity-60');
+                
+                // Micro-interaction: Visual wave feedback
+                startVisualizer();
+            } else {
+                // Idle state
+                micLabel.innerText = "Start Call";
+                micPulse.classList.add('hidden');
+                statusText.innerText = "Tap the microphone to start";
+                statusText.classList.add('text-on-surface-variant', 'opacity-60');
+                statusText.classList.remove('text-tertiary', 'opacity-100');
+            }
+        });
+
+        function startVisualizer() {
+            if (!isListening) return;
+            const messages = [
+                "Finding tables for two...",
+                "Searching for Saturday night...",
+                "Checking Mumbai menu...",
+                "I'm listening..."
+            ];
+            let i = 0;
+            const interval = setInterval(() => {
+                if (!isListening) {
+                    clearInterval(interval);
+                    return;
+                }
+                statusText.innerText = messages[i % messages.length];
+                i++;
+            }, 3000);
+        }
+    </script>
+</body></html>

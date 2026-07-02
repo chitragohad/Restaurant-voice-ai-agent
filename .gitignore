@@ -1,0 +1,11 @@
+__pycache__/
+*.py[cod]
+.venv/
+.env
+credentials.json
+token.json
+heroic-rain-*.json
+service-account.json
+*.egg-info/
+.DS_Store
+public/
