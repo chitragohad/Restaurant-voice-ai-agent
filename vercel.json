@@ -3,7 +3,7 @@
   "buildCommand": "bash scripts/vercel-build.sh",
   "functions": {
     "src/server/app.py": {
-      "maxDuration": 800
+      "maxDuration": 300
     }
   },
   "rewrites": [

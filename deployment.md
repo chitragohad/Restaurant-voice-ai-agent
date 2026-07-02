@@ -84,7 +84,7 @@ flowchart TB
 
 | Requirement | Plan | Notes |
 |-------------|------|-------|
-| **WebSocket voice sessions** | Pro recommended | Up to **800s** function duration configured in `vercel.json` |
+| **WebSocket voice sessions** | Hobby / Pro | **300s** max on current plans (`maxDuration` in `vercel.json`) |
 | **Fluid compute** | Default (2025+) | Required for WebSockets — enabled on new projects |
 | **Python runtime** | 3.9+ | Matches `requirements.txt` |
 | **Gemini API key** | Any | Set as Vercel env var |
@@ -375,7 +375,7 @@ python main.py   # http://localhost:8000
   "buildCommand": "bash scripts/vercel-build.sh",
   "functions": {
     "src/server/app.py": {
-      "maxDuration": 800
+      "maxDuration": 300
     }
   },
   "rewrites": [
@@ -385,7 +385,7 @@ python main.py   # http://localhost:8000
 }
 ```
 
-- **`maxDuration: 800`** — allows voice calls up to ~13 minutes on Pro. Adjust per your plan limits.
+- **`maxDuration: 300`** — maximum allowed on Hobby and standard Pro (5 minutes per voice call). Upgrade plan only if Vercel raises your account limit.
 - **Rewrites** — clean URLs for architecture and latency pages.
 
 ---
@@ -403,7 +403,7 @@ python main.py   # http://localhost:8000
 | 7 | `GOOGLE_CALENDAR_ID` is the shared calendar ID (not `primary` unless shared) |
 | 8 | `MOCK_GOOGLE_INTEGRATIONS=false` |
 | 9 | `RESERVATIONS_DATA_DIR=/tmp/data` set on Vercel |
-| 10 | Vercel Pro for voice calls > 60s |
+| 10 | Vercel `maxDuration` ≤ 300 (Hobby/Pro limit) |
 | 11 | `bash scripts/vercel-build.sh` succeeds locally |
 
 ---
@@ -459,7 +459,7 @@ Preview deployments use the same FastAPI + WebSocket stack. Set Preview env vars
 | Symptom | Cause | Fix |
 |---------|-------|-----|
 | Voice stuck on "Connecting…" | `GEMINI_API_KEY` missing | Set in Vercel env, redeploy |
-| WebSocket closes mid-call | Function timeout | Upgrade to Pro; confirm `maxDuration: 800` |
+| WebSocket closes mid-call | Function timeout (300s) | Keep calls under 5 min; or upgrade Vercel plan if higher limit available |
 | 404 on `/` | Build failed | Check deploy logs; run `scripts/vercel-build.sh` |
 | Sheets append fails | Wrong tab name | Set `GOOGLE_SHEETS_SHEET_NAME=Sheet1` |
 | Calendar 403 | Calendar API not enabled | Enable in Google Cloud Console |
