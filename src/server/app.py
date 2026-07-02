@@ -35,11 +35,7 @@ app = FastAPI(
 STATIC_DIR = Path(__file__).parent / "static"
 PUBLIC_DIR = ROOT / "public"
 
-if IS_VERCEL:
-    public_static = PUBLIC_DIR / "static"
-    if public_static.is_dir():
-        app.mount("/static", StaticFiles(directory=public_static), name="static")
-elif STATIC_DIR.is_dir():
+if STATIC_DIR.is_dir():
     app.mount("/static", StaticFiles(directory=STATIC_DIR), name="static")
 
 
@@ -65,7 +61,7 @@ class RescheduleRequest(BaseModel):
 
 
 def _page_dir() -> Path:
-    return PUBLIC_DIR if IS_VERCEL else STATIC_DIR
+    return STATIC_DIR if STATIC_DIR.is_dir() else PUBLIC_DIR
 
 
 @app.get("/")
