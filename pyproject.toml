@@ -5,7 +5,7 @@ requires-python = ">=3.9"
 dependencies = []
 
 [tool.vercel]
-entrypoint = "src.server.app:app"
+entrypoint = "app:app"
 
 [tool.vercel.scripts]
 build = "bash scripts/vercel-build.sh"

@@ -15,6 +15,10 @@ from pydantic import BaseModel, Field
 ROOT = Path(__file__).resolve().parents[2]
 load_dotenv(ROOT / ".env")
 
+IS_VERCEL = bool(os.getenv("VERCEL"))
+if IS_VERCEL:
+    os.environ.setdefault("RESERVATIONS_DATA_DIR", "/tmp/data")
+
 from src.booking.reservations import get_reservation_service
 from src.integrations.booking_actions import (
     cancel_calendar_hold,
@@ -29,7 +33,10 @@ app = FastAPI(
 )
 
 STATIC_DIR = Path(__file__).parent / "static"
-app.mount("/static", StaticFiles(directory=STATIC_DIR), name="static")
+# On Vercel, static assets are served from public/ via the CDN — mounting here
+# crashes cold start if src/server/static is not bundled into the function.
+if not IS_VERCEL and STATIC_DIR.is_dir():
+    app.mount("/static", StaticFiles(directory=STATIC_DIR), name="static")
 
 
 class AvailabilityRequest(BaseModel):
@@ -53,19 +60,19 @@ class RescheduleRequest(BaseModel):
     new_time: str
 
 
-@app.get("/")
-async def index():
-    return FileResponse(STATIC_DIR / "index.html")
+if not IS_VERCEL:
 
+    @app.get("/")
+    async def index():
+        return FileResponse(STATIC_DIR / "index.html")
 
-@app.get("/architecture")
-async def architecture():
-    return FileResponse(STATIC_DIR / "architecture.html")
+    @app.get("/architecture")
+    async def architecture():
+        return FileResponse(STATIC_DIR / "architecture.html")
 
-
-@app.get("/latency")
-async def latency():
-    return FileResponse(STATIC_DIR / "latency.html")
+    @app.get("/latency")
+    async def latency():
+        return FileResponse(STATIC_DIR / "latency.html")
 
 
 @app.get("/api/latency/latest")

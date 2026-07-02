@@ -2,7 +2,7 @@
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "buildCommand": "bash scripts/vercel-build.sh",
   "functions": {
-    "src/server/app.py": {
+    "app.py": {
       "maxDuration": 300
     }
   },
