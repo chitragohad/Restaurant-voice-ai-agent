@@ -33,9 +33,13 @@ app = FastAPI(
 )
 
 STATIC_DIR = Path(__file__).parent / "static"
-# On Vercel, static assets are served from public/ via the CDN — mounting here
-# crashes cold start if src/server/static is not bundled into the function.
-if not IS_VERCEL and STATIC_DIR.is_dir():
+PUBLIC_DIR = ROOT / "public"
+
+if IS_VERCEL:
+    public_static = PUBLIC_DIR / "static"
+    if public_static.is_dir():
+        app.mount("/static", StaticFiles(directory=public_static), name="static")
+elif STATIC_DIR.is_dir():
     app.mount("/static", StaticFiles(directory=STATIC_DIR), name="static")
 
 
@@ -60,19 +64,25 @@ class RescheduleRequest(BaseModel):
     new_time: str
 
 
-if not IS_VERCEL:
+def _page_dir() -> Path:
+    return PUBLIC_DIR if IS_VERCEL else STATIC_DIR
 
-    @app.get("/")
-    async def index():
-        return FileResponse(STATIC_DIR / "index.html")
 
-    @app.get("/architecture")
-    async def architecture():
-        return FileResponse(STATIC_DIR / "architecture.html")
+@app.get("/")
+async def index():
+    return FileResponse(_page_dir() / "index.html")
 
-    @app.get("/latency")
-    async def latency():
-        return FileResponse(STATIC_DIR / "latency.html")
+
+@app.get("/architecture")
+@app.get("/architecture.html")
+async def architecture():
+    return FileResponse(_page_dir() / "architecture.html")
+
+
+@app.get("/latency")
+@app.get("/latency.html")
+async def latency():
+    return FileResponse(_page_dir() / "latency.html")
 
 
 @app.get("/api/latency/latest")

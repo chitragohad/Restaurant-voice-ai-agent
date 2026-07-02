@@ -34,7 +34,7 @@ For production deployment on Vercel (frontend + backend), see **[deployment.md](
 cd "Restaurant voice agent"
 python -m venv .venv
 source .venv/bin/activate   # Windows: .venv\Scripts\activate
-pip install -r requirements.txt
+pip install .
 cp .env.example .env
 ```
 
